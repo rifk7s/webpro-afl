@@ -21,15 +21,15 @@ body {
 }
 
 /* Navbar styles */
-.navbar {   
+.navbar {
     background: #FFFFFF;
     border: 2px solid #6C7A89;
     border-radius: 10px;
     position: sticky;
     top: 0;
     z-index: 1030;
-    padding: 0.5rem 1rem; /* Add horizontal padding to the navbar */
-    margin: 0 1rem; /* Add margin to create space on the edges */
+    padding: 0.6rem 0.3rem;
+    margin: 0.9rem 0.5rem;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Add a subtle shadow for better visibility */
     font-family: 'JetBrains Mono', monospace;
     font-size: 16px;
@@ -111,10 +111,10 @@ body {
     }
 }
 
-@media (max-width: 992px) {
+@media (max-width: 375px) {
     .search-box {
-        width: 60%; /* Make the search bar full width */
-        max-width: 600px; /* Limit the maximum width */
+        max-width: 50%; /* Make the search bar full width */
+       
         margin-bottom: 1px; /* Center the search bar and add spacing below */
     }
 
@@ -133,9 +133,25 @@ body {
     }
 }
 
-@media (max-width: 768px) {
+@media (max-width: 1024px) {
     .search-box {
-        max-width: 60%; /* Allow the search bar to take full width */
+        max-width: 700px; /* Allow the search bar to take full width */
+        margin-bottom: 1px; /* Add more spacing below the search bar */
+    }
+
+    .nav-icons {
+        flex-wrap: wrap; /* Allow icons to wrap */
+        gap: 8px; /* Reduce the gap further for smaller screens */
+    }
+
+    .nav-icons .nav-link {
+        padding: 0.3rem; /* Adjust padding for smaller screens */
+    }
+}
+
+@media (max-width: 320px) {
+    .search-box {
+        max-width: 49%; /* Allow the search bar to take full width */
         margin-bottom: 1px; /* Add more spacing below the search bar */
     }
 
