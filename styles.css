@@ -1,16 +1,18 @@
 :root {
-    --primary: #4c91d4;
-    --secondary: #f8eaf0;
-    --accent: #cc7197;
-    --muted: #e5e7eb;
-    --foreground: #111827;
-    --background: #ffffff;
+    --primary: #4c91d4; /* Update if needed to match Figma */
+    --secondary: #f8eaf0; /* Update if needed to match Figma */
+    --accent: #cc7197; /* Update if needed to match Figma */
+    --muted: #e5e7eb; /* Update if needed to match Figma */
+    --foreground: #111827; /* Update if needed to match Figma */
+    --background: #ffffff; /* Update if needed to match Figma */
     --primary-500: #4c91d4;
     --primary-foreground: #d8e7f6;
     --secondary-500: #cc7197;
     --muted-100: #f5f5f5;
     --muted-300: #d6d7d9;
     --muted-500: #9e9e9e;
+    --button-bg: #f8d7da; /* Add new color for button background */
+    --button-border: #d6a5a8; /* Add new color for button border */
 }
 
 /* Global Font Styles */
@@ -33,8 +35,8 @@ body {
     top: 0;
     z-index: 1030;
     padding: 0.5rem 1rem; /* Add consistent padding */
-    max-width: 95%; /* Set the navbar width to 95% of the viewport */
-    margin: 10px auto; /* Center the navbar and add vertical spacing */
+    max-width: 80%; /* Ensure the navbar is centered and matches the layout */
+    margin: 10px auto; /* Center the navbar horizontally */
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Subtle shadow */
     font-family: 'JetBrains Mono', monospace;
     font-size: 16px;
@@ -53,8 +55,9 @@ body {
 
 .search-box {
     flex: 1; /* Allow the search box to take available space */
-    max-width: 600px; /* Default width for desktop/laptop resolutions */
-    margin-right: 2.5rem; /* Add spacing between the search box and icons */
+    max-width: 100%; /* Ensure the search box fits within the navbar */
+    margin-right: 1.5rem; /* Add spacing between the search box and icons */
+    text-align: center; /* Center the search box content */
 }
 
 @media (min-width: 1440px) {
@@ -147,7 +150,7 @@ body {
 /* Adjustments for Ultra High-Resolution Screens (e.g., iQOO 13) */
 @media (min-width: 1440px) {
     .navbar {
-        max-width: 100%; /* Allow the navbar to stretch fully on large screens */
+        max-width: 70%; /* Adjust for larger screens */
         margin: 10px auto; /* Center the navbar */
     }
 }
@@ -285,15 +288,9 @@ body {
 }
 
 .product-card img {
-    border-top-left-radius: 0.5rem;
-    border-top-right-radius: 0.5rem;
-    height: 200px;
-    object-fit: cover;
-    transition: transform 0.3s ease;
-}
-
-.product-card:hover img {
-    transform: scale(1.05);
+    height: 400px; /* Match Figma design */
+    object-fit: cover; /* Ensure the image fills the container */
+    margin-bottom: 10px; /* Add spacing between the image and the buttons */
 }
 
 .product-card h5 {
@@ -333,22 +330,16 @@ body {
 }
 
 .product-image-container {
-    box-sizing: border-box;
-    position: relative;
-    width: 480px;
-    height: 350px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 27px 1px;
-    border: 1px solid #000000;
-    overflow: hidden;
+    margin: 0 auto; /* Center the product image container */
+    text-align: center; /* Ensure content inside is centered */
+    width: 100%; /* Ensure the container stretches fully */
 }
 
 .product-image-container img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
+    display: block; /* Remove inline spacing issues */
+    margin: 0 auto; /* Center the image horizontally */
+    width: 100%; /* Ensure the image fits the container */
+    height: auto; /* Maintain aspect ratio */
 }
 
 .product-image-container.left {
@@ -422,25 +413,57 @@ body {
 }
 
 /* Active category button style */
-.btn-outline-primary.active {
-    background: #E6B7CB;
-    color: #000000;
-}
-
 .btn-outline-primary {
-    font-family: 'JetBrains Mono';
+    background-color: transparent; /* Revert to transparent for non-active tabs */
+    border-color: #000000; /* Black border for non-active tabs */
+    color: #000000; /* Black text for non-active tabs */
+    font-family: 'JetBrains Mono', monospace;
     font-weight: 700;
     font-size: 18px;
-    border: 1px solid #000000;
     border-radius: 10px;
-    color: #000000;
-    background: transparent;
-    padding: 8px 24px; /* Ensure consistent padding */
+    padding: 8px 24px;
 }
 
-.btn-outline-primary:hover {
-    background: #E6B7CB;
-    color: #000000;
+.btn-outline-primary.active {
+    background-color: #E6B7CB; /* Pink background for active tab */
+    border-color: #E6B7CB; /* Pink border for active tab */
+    color: #000000; /* Black text for active tab */
+}
+
+/* Product Button Styles */
+.product-name-btn {
+    background-color: #D4DBE2; /* Light gray-blue for product name */
+    color: #000000; /* Black text */
+    border: 1px solid #000000; /* Black outline */
+    border-radius: 0; /* Square edges */
+    font-family: 'JetBrains Mono', monospace;
+    font-weight: 700;
+    font-size: 16px;
+    padding: 10px 0; /* Adjust padding for better spacing */
+    margin-bottom: 5px; /* Add spacing between the name and price buttons */
+    display: block;
+    width: 100%;
+    text-align: center;
+}
+
+.product-price-btn {
+    background-color: #E6B7CB; /* Light pink for price */
+    color: #000000; /* Black text */
+    border: 1px solid #000000; /* Black outline */
+    border-radius: 0; /* Square edges */
+    font-family: 'JetBrains Mono', monospace;
+    font-weight: 700;
+    font-size: 16px;
+    padding: 10px 0; /* Adjust padding for better spacing */
+    display: block;
+    width: 100%;
+    text-align: center;
+    transition: background-color 0.3s ease, color 0.3s ease; /* Smooth hover transition */
+}
+
+.product-price-btn:hover {
+    background-color: #D6A5A8; /* Darker pink on hover */
+    color: #FFFFFF; /* White text on hover */
 }
 
 /* Lightsaber scanning animation */
@@ -551,6 +574,24 @@ body {
 /* Page Background */
 body {
     background: #F3F5F7;
+}
+
+.container {
+    max-width: 85%; /* Ensure all containers align consistently */
+    margin: 0 auto; /* Center the container horizontally */
+}
+
+.product-image-container {
+    margin: 0 auto; /* Center the product image container */
+    text-align: center; /* Ensure content inside is centered */
+    width: 100%; /* Ensure the container stretches fully */
+}
+
+.product-image-container img {
+    display: block; /* Remove inline spacing issues */
+    margin: 0 auto; /* Center the image horizontally */
+    width: 100%; /* Ensure the image fits the container */
+    height: auto; /* Maintain aspect ratio */
 }
 
 
