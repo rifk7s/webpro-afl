@@ -20,7 +20,7 @@ body {
     color: #000000;
 }
 
-/* Navbar styles */
+/* General Navbar Styles */
 .navbar {
     background: #FFFFFF;
     border: 2px solid #6C7A89;
@@ -28,11 +28,84 @@ body {
     position: sticky;
     top: 0;
     z-index: 1030;
-    padding: 0.6rem 0.3rem;
-    margin: 0.9rem 0.5rem;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Add a subtle shadow for better visibility */
+    padding: 0.5rem 1rem; /* Add consistent padding */
+    margin: 10px 15px; /* Add horizontal space on the edges */
+    max-width: calc(100% - 30px); /* Ensure the navbar doesn't exceed the viewport width */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Subtle shadow */
     font-family: 'JetBrains Mono', monospace;
     font-size: 16px;
+}
+
+/* Adjustments for Medium Screens (1024px and below) */
+@media (max-width: 1024px) {
+    .navbar {
+        padding: 0.4rem 0.6rem; /* Slightly reduce padding */
+        margin: 8px auto; /* Adjust margin */
+    }
+
+    .search-box {
+        max-width: 70%; /* Reduce search box width */
+    }
+
+    .nav-icons {
+        gap: 8px; /* Reduce gap between icons */
+    }
+}
+
+/* Adjustments for Small Screens (768px and below) */
+@media (max-width: 768px) {
+    .navbar {
+        padding: 0.3rem 0.6rem; /* Further reduce padding */
+        margin: 6px auto; /* Adjust margin */
+    }
+
+    .search-box {
+        max-width: 60%; /* Further reduce search box width */
+    }
+
+    .nav-icons {
+        gap: 6px; /* Reduce gap between icons */
+    }
+}
+
+/* Adjustments for Extra Small Screens (375px and below) */
+@media (max-width: 375px) {
+    .navbar {
+        padding: 0.3rem 0.5rem; /* Minimal padding */
+        margin: 5px auto; /* Minimal margin */
+    }
+
+    .search-box {
+        max-width: 90%; /* Ensure the search box fits */
+    }
+
+    .nav-icons {
+        gap: 5px; /* Minimal gap between icons */
+    }
+}
+
+/* Adjustments for Ultra Small Screens (320px and below) */
+@media (max-width: 320px) {
+    .navbar {
+        padding: 0.3rem 0.5rem; /* Restore padding for smaller screens */
+        margin: 5px auto; /* Restore margin */
+        max-width: 100%; /* Allow the navbar to take full width */
+    }
+
+    .search-box {
+        max-width: 90%; /* Restore the search box width */
+    }
+
+    .nav-icons {
+        gap: 5px; /* Restore the gap between icons */
+    }
+}
+
+/* Ensure the container inside the navbar is centered */
+.navbar .container {
+    max-width: 100%; /* Allow the container to stretch fully */
+    margin: 0 auto; /* Center the container */
+    padding: 1 1rem; /* Add padding to the sides */
 }
 
 .nav-icon {
@@ -112,8 +185,21 @@ body {
 }
 
 @media (max-width: 375px) {
+    .navbar {
+        padding: 0.3rem 0.5rem; /* Reduce padding for smaller screens */
+        margin: 5px auto; /* Adjust margin to make it less bulky */
+    }
+
     .search-box {
-        max-width: 50%; /* Make the search bar full width */
+        max-width: 90%; /* Ensure the search box fits within the navbar */
+    }
+
+    .nav-icons {
+        gap: 5px; /* Reduce the gap between icons */
+    }
+
+    .search-box {
+        max-width: 49%; /* Make the search bar full width */
        
         margin-bottom: 1px; /* Center the search bar and add spacing below */
     }
@@ -135,7 +221,7 @@ body {
 
 @media (max-width: 1024px) {
     .search-box {
-        max-width: 700px; /* Allow the search bar to take full width */
+        max-width: auto; /* Allow the search bar to take full width */
         margin-bottom: 1px; /* Add more spacing below the search bar */
     }
 
