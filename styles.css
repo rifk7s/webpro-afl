@@ -93,20 +93,16 @@ body {
     color: #1E1E1E; /* Set the icon color */
 }
 
-@media (max-width: 992px) {
+@media (max-width: 1200px) {
     .search-box {
-        width: 100%; /* Make the search bar full width */
-        max-width: 600px; /* Limit the maximum width */
-        margin: 0 auto 1px; /* Center the search bar and add spacing below */
-    }
-
-    .search-bar-container {
-        width: auto;
+        width: 60%; /* Make the search bar full width */
+        max-width: 700px; /* Limit the maximum width */
+        margin-bottom: 1px; /* Center the search bar and add spacing below */
     }
 
     .nav-icons {
         justify-content: center; /* Center the icons */
-        gap: 10px; /* Reduce the gap between icons */
+        gap: 15px; /* Adjust the gap between icons */
     }
 
     .nav-icons .nav-link {
@@ -114,19 +110,41 @@ body {
     }
 }
 
-@media (max-width: 768px) {
+@media (max-width: 992px) {
     .search-box {
-        max-width: 65%; /* Allow the search bar to take full width on smaller screens */
-        margin-bottom: 1px; /* Add more spacing below the search bar */
+        width: 60%; /* Make the search bar full width */
+        max-width: 600px; /* Limit the maximum width */
+        margin-bottom: 1px; /* Center the search bar and add spacing below */
+    }
+
+    .search-bar-container {
+        width: auto;
     }
 
     .nav-icons {
         flex-wrap: wrap; /* Allow icons to wrap if needed */
-        gap: 8px; /* Reduce the gap further for smaller screens */
+        justify-content: center; /* Center the icons */
+        gap: 10px; /* Reduce the gap between icons */
     }
 
     .nav-icons .nav-link {
         padding: 0.4rem; /* Adjust padding for smaller screens */
+    }
+}
+
+@media (max-width: 768px) {
+    .search-box {
+        max-width: 60%; /* Allow the search bar to take full width */
+        margin-bottom: 1px; /* Add more spacing below the search bar */
+    }
+
+    .nav-icons {
+        flex-wrap: wrap; /* Allow icons to wrap */
+        gap: 8px; /* Reduce the gap further for smaller screens */
+    }
+
+    .nav-icons .nav-link {
+        padding: 0.3rem; /* Adjust padding for smaller screens */
     }
 }
 
@@ -229,6 +247,7 @@ body {
         flex-direction: column;
         height: auto;
         margin-top: 20px;
+        
     }
 
     .product-image-container {
