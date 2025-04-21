@@ -1,0 +1,410 @@
+:root {
+    --primary: #4c91d4;
+    --secondary: #f8eaf0;
+    --accent: #cc7197;
+    --muted: #e5e7eb;
+    --foreground: #111827;
+    --background: #ffffff;
+    --primary-500: #4c91d4;
+    --primary-foreground: #d8e7f6;
+    --secondary-500: #cc7197;
+    --muted-100: #f5f5f5;
+    --muted-300: #d6d7d9;
+    --muted-500: #9e9e9e;
+}
+
+/* Global Font Styles */
+body {
+    font-family: 'JetBrains Mono', monospace; /* Use JetBrains Mono from Google Fonts */
+    background: #F3F5F7;
+    color: #000000;
+}
+
+/* Navbar styles */
+.navbar {
+    background: #FFFFFF;
+    border: 2px solid #6C7A89;
+    border-radius: 10px;
+    position: sticky;
+    top: 0;
+    z-index: 1030;
+    padding: 0.5rem 0;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Add a subtle shadow for better visibility */
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 16px;
+}
+
+.nav-icon {
+    width: 48px;
+    height: 48px;
+}
+
+.search-box {
+    width: 80%;  /* Default width for larger screens */
+}
+
+.search-bar-container {
+    position: relative;
+    flex: 1;
+    display: flex;
+    align-items: center;
+}
+
+.search-input {
+    padding: 0.75rem 0.75rem 0.75rem 2.5rem auto;
+    border-radius: 2rem;
+    border: 1px solid var(--muted-300);
+    font-size: 0.9rem;
+    background-color: var(--muted-100);
+    width: 100%;
+}
+
+.search-input:focus {
+    outline: none;
+    border-color: var(--primary-500);
+    box-shadow: 0 0 0 0.1rem rgba(76, 145, 212, 0.25);
+}
+
+.nav-link {
+    color: var(--foreground);
+    font-size: 1.25rem;
+    padding: 0.5rem;
+    border-radius: 0.5rem;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid var(--muted-300);
+}
+
+.nav-link:hover {
+    color: var(--primary-500);
+    background-color: var(--muted-100);
+}
+
+.nav-icons {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.nav-icons .nav-link i {
+    all: unset; /* Remove all inherited styles */
+    font-size: 1.5rem; /* Set the icon size */
+    color: #1E1E1E; /* Set the icon color */
+}
+
+@media (max-width: 992px) {
+    .search-box {
+        width: 100%; /* Make the search bar full width */
+        max-width: 600px; /* Limit the maximum width */
+        margin: 0 auto 1px; /* Center the search bar and add spacing below */
+    }
+
+    .search-bar-container {
+        width: auto;
+    }
+
+    .nav-icons {
+        justify-content: center; /* Center the icons */
+        gap: 10px; /* Reduce the gap between icons */
+    }
+
+    .nav-icons .nav-link {
+        padding: 0.5rem; /* Adjust padding for smaller screens */
+    }
+}
+
+@media (max-width: 768px) {
+    .search-box {
+        max-width: 65%; /* Allow the search bar to take full width on smaller screens */
+        margin-bottom: 1px; /* Add more spacing below the search bar */
+    }
+
+    .nav-icons {
+        flex-wrap: wrap; /* Allow icons to wrap if needed */
+        gap: 8px; /* Reduce the gap further for smaller screens */
+    }
+
+    .nav-icons .nav-link {
+        padding: 0.4rem; /* Adjust padding for smaller screens */
+    }
+}
+
+/* Product card styles */
+.product-card {
+    border: 1px solid var(--muted-300);
+    border-radius: 0.5rem;
+    margin-bottom: 1.5rem;
+    overflow: hidden;
+}
+
+.product-card img {
+    border-top-left-radius: 0.5rem;
+    border-top-right-radius: 0.5rem;
+    height: 200px;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+.product-card:hover img {
+    transform: scale(1.05);
+}
+
+.product-card h5 {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 18px;
+    font-weight: 700;
+}
+
+.product-card p {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 16px;
+    color: #4c91d4;
+}
+
+.product-showcase {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    padding: 12px 0;
+}
+
+.product-image {
+    border-radius: 0;
+    height: 600px;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+/* Product Recommendations Layout */
+.product-recommendations {
+    position: relative;
+    width: 100%;
+    height: 350px;
+    margin-top: 340px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.product-image-container {
+    box-sizing: border-box;
+    position: relative;
+    width: 480px;
+    height: 350px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 27px 1px;
+    border: 1px solid #000000;
+    overflow: hidden;
+}
+
+.product-image-container img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.product-image-container.left {
+    left: 0;
+}
+
+.product-image-container.middle {
+    left: 480px;
+}
+
+.product-image-container.right {
+    left: 960px;
+}
+
+@media (max-width: 1440px) {
+    .product-recommendations {
+        transform: scale(0.9);
+        transform-origin: top center;
+    }
+}
+
+@media (max-width: 992px) {
+    .product-recommendations {
+        flex-direction: column;
+        height: auto;
+        margin-top: 20px;
+    }
+
+    .product-image-container {
+        width: 100%;
+        left: 0;
+        margin-bottom: 20px;
+    }
+}
+
+/* Shop Now button styles */
+.shop-now-btn {
+    background: var(--primary-500);
+    color: white;
+    padding: 12px 48px;
+    border-radius: 8px;
+    text-decoration: none;
+    display: inline-block;
+    transition: opacity 0.2s;
+}
+
+.shop-now-btn:hover {
+    opacity: 0.9;
+    color: white;
+}
+
+.btn-primary {
+    background: #6EA6DD;
+    border: 1px solid #000000;
+    border-radius: 10px;
+    font-family: 'JetBrains Mono', monospace;
+    font-weight: 700;
+    font-size: 40px;
+    color: #000000;
+}
+
+.btn-primary:hover {
+    background: #5d94c2;
+}
+
+.about-text-bg {
+    background-color: var(--primary-foreground);
+    padding: 1rem;
+    border-radius: 0.5rem;
+}
+
+/* Active category button style */
+.btn-outline-primary.active {
+    background: #E6B7CB;
+    color: #000000;
+}
+
+.btn-outline-primary {
+    font-family: 'JetBrains Mono';
+    font-weight: 700;
+    font-size: 18px;
+    border: 1px solid #000000;
+    border-radius: 10px;
+    color: #000000;
+    background: transparent;
+    padding: 8px 24px; /* Ensure consistent padding */
+}
+
+.btn-outline-primary:hover {
+    background: #E6B7CB;
+    color: #000000;
+}
+
+/* Lightsaber scanning animation */
+.lightsaber {
+    position: absolute;
+    width: 100%;
+    height: 5px;
+    background: linear-gradient(90deg, rgba(0, 255, 0, 0.8), rgba(0, 255, 0, 0.2));
+    animation: scanDownUp 6s infinite cubic-bezier(0.42, 0, 0.58, 1); /* Smooth down-up motion */
+    z-index: 1; /* Ensure it stays above the image */
+    pointer-events: none; /* Prevent interaction */
+}
+
+@keyframes scanDownUp {
+    0% {
+        top: 0%;
+    }
+    50% {
+        top: 100%; /* Bottom */
+    }
+    100% {
+        top: 0%; /* Back to top */
+    }
+}
+
+/* Ensure the lightsaber is confined to the image container */
+#animationContainer {
+    position: relative;
+    display: flex;
+    justify-content: center; /* Center the image and lightsaber */
+    align-items: center;
+    width: 150px; /* Match the image width */
+    height: 150px; /* Match the image height */
+    overflow: hidden; /* Prevent lightsaber from overflowing */
+    margin: 0 auto; /* Center the container horizontally */
+}
+
+#animationContainer img {
+    position: relative;
+    z-index: 0; /* Ensure the image stays below the lightsaber */
+    display: block; /* Ensure the image is centered */
+}
+
+/* Fade-in and fade-out animations */
+.fade-in {
+    animation: fadeIn 0.5s ease forwards;
+}
+
+.fade-out {
+    animation: fadeOut 0.5s ease forwards;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes fadeOut {
+    from {
+        opacity: 1;
+    }
+    to {
+        opacity: 0;
+    }
+}
+
+/* Glowing button styles */
+.glowing-btn {
+    background: linear-gradient(90deg, #a445b2, #fa4299);
+    color: white;
+    font-weight: bold;
+    border: none;
+    border-radius: 50px;
+    padding: 10px 30px;
+    text-transform: uppercase;
+    position: relative;
+    overflow: hidden;
+    transition: all 0.3s ease-in-out;
+    box-shadow: 0 0 10px rgba(250, 66, 153, 0.6), 0 0 20px rgba(250, 66, 153, 0.4);
+}
+
+.glowing-btn:hover {
+    box-shadow: 0 0 20px rgba(250, 66, 153, 0.8), 0 0 30px rgba(250, 66, 153, 0.6);
+    transform: scale(1.05); /* Slightly enlarge the button on hover */
+}
+
+.glowing-btn::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: linear-gradient(90deg, rgba(164, 69, 178, 0.4), rgba(250, 66, 153, 0.4));
+    filter: blur(30px);
+    z-index: -1;
+    transition: opacity 0.3s ease-in-out;
+}
+
+.glowing-btn:hover::before {
+    opacity: 1;
+}
+
+/* Page Background */
+body {
+    background: #F3F5F7;
+}
+
+
+

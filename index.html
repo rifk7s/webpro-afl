@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Verification</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        /* Green light animation for the progress bar */
+        @keyframes greenLight {
+            0% {
+                background-position: 0% 50%;
+            }
+            100% {
+                background-position: 100% 50%;
+            }
+        }
+
+        .progress-bar-animated-green {
+            background: linear-gradient(90deg, #28a745, #34ce57, #28a745);
+            background-size: 200% 100%;
+            animation: greenLight 2s linear infinite;
+        }
+
+        /* Fade-out and flipped card animation */
+        @keyframes fadeOutFlip {
+            0% {
+                opacity: 1;
+                transform: rotateY(0deg);
+            }
+            100% {
+                opacity: 0;
+                transform: rotateY(90deg);
+            }
+        }
+
+        .fade-out-flip {
+            animation: fadeOutFlip 1s ease forwards;
+        }
+
+        /* Fade-in and fade-out animations for meme text */
+        @keyframes fadeIn {
+            0% {
+                opacity: 0;
+            }
+            100% {
+                opacity: 1;
+            }
+        }
+
+        @keyframes fadeOut {
+            0% {
+                opacity: 1;
+            }
+            100% {
+                opacity: 0;
+            }
+        }
+
+        .fade-in {
+            animation: fadeIn 1.5s ease forwards;
+        }
+
+        .fade-out {
+            animation: fadeOut 1.5s ease forwards;
+        }
+    </style>
+</head>
+<body>
+    <!-- Blurred Background -->
+    <div id="blur-bg" class="position-fixed top-0 start-0 w-100 h-100 bg-dark" style="z-index: 1040; opacity: 0.5; display: none;"></div>
+
+    <!-- Popup Modal -->
+    <div class="modal fade" id="humanScanModal" tabindex="-1" aria-labelledby="humanScanModalLabel" aria-hidden="true" data-bs-backdrop="static" data-bs-keyboard="false">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content text-center">
+                <div class="modal-body">
+                    <h3 id="modalTitle" class="text-warning">PROOF OF HUMANS ENTRY SCAN SYSTEM</h3>
+                    <p id="modalText" class="text-muted bubble">Complete your scan to enter</p>
+                    <div id="animationContainer" style="display: none;">
+                        <img src="img/3d_head.jpeg" alt="3D Head" class="img-fluid mb-3">
+                        <div class="lightsaber"></div>
+                    </div>
+                    <p id="dynamicText" class="text-info fw-bold text-center"></p>
+                    <div id="progressContainer" class="progress my-3" style="height: 20px; display: none;">
+                        <div id="progressBar" class="progress-bar progress-bar-animated-green text-center" role="progressbar" style="width: 0%;">
+                            <span id="progressText" class="text-white fw-bold"></span>
+                        </div>
+                    </div>
+                    <div id="successMessage" class="text-success fw-bold" style="display: none;">
+                        <i class="bi bi-check-circle fs-1"></i>
+                        <p>SUCCESS</p>
+                        <button id="continueBtn" class="btn btn-success mt-3" style="display: none;">Continue</button>
+                    </div>
+                    <button id="beginScanBtn" class="btn glowing-btn">Begin Scan</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // Show the modal and blur background on page load
+        window.onload = function () {
+            const blurBg = document.getElementById('blur-bg');
+            const modal = new bootstrap.Modal(document.getElementById('humanScanModal'));
+            blurBg.style.display = 'block';
+            modal.show();
+
+            const beginScanBtn = document.getElementById('beginScanBtn');
+            const animationContainer = document.getElementById('animationContainer');
+            const dynamicText = document.getElementById('dynamicText');
+            const progressContainer = document.getElementById('progressContainer');
+            const progressBar = document.getElementById('progressBar');
+            const progressText = document.getElementById('progressText');
+            const successMessage = document.getElementById('successMessage');
+            const continueBtn = document.getElementById('continueBtn');
+            const modalTitle = document.getElementById('modalTitle');
+            const modalText = document.getElementById('modalText');
+
+            const memeTexts = [
+                "DETECTING CHIEF KEEF KNOWLEDGE",
+                "SCANNING SPOTIFY PLAYLIST AUTHENTICITY",
+                "CALCULATING HIMOTHY SCORE",
+                "RUNNING BAND FOR BAND EMULATOR",
+                "DETECTING IP ADRESS CONFIRMATION",
+            ];
+
+            // Remove blur and start animation when scan begins
+            beginScanBtn.addEventListener('click', function () {
+                blurBg.style.display = 'none';
+                beginScanBtn.style.display = 'none';
+                modalTitle.textContent = 'Scanning...';
+                modalText.style.display = 'none';
+                animationContainer.style.display = 'block';
+                progressContainer.style.display = 'block';
+
+                // Progress bar animation
+                let progress = 0;
+                const duration = 10000; // Changeable duration in milliseconds (default: 11000ms = 11 seconds)
+                const interval = 50; // Update interval in milliseconds
+                const increment = (100 / (duration / interval));
+                let memeIndex = 0;
+                let isMemeVisible = false;
+
+                const progressInterval = setInterval(() => {
+                    progress += increment;
+                    if (progress >= 100) {
+                        progress = 100;
+                        clearInterval(progressInterval);
+
+                        // Ensure progress reaches 100% before showing success
+                        progressBar.style.width = '100%';
+                        progressText.textContent = '100%';
+
+                        // Hide animation and show success message
+                        setTimeout(() => {
+                            animationContainer.style.display = 'none';
+                            progressContainer.style.display = 'none';
+                            successMessage.style.display = 'block';
+                            continueBtn.style.display = 'inline-block';
+
+                            // Automatically close modal with fade-out and flipped card animation
+                            setTimeout(() => {
+                                successMessage.classList.add('fade-out-flip');
+                                setTimeout(() => {
+                                    // Redirect to homepage.html after fade-out animation
+                                    window.location.href = 'homepage.html';
+                                }, 1000); // Wait for fade-out animation to complete
+                            }, 2000); // Wait 2 seconds before starting fade-out
+                        }, 500); // Small delay to ensure smooth transition
+                    }
+
+                    // Update progress bar and text
+                    progressBar.style.width = `${progress}%`;
+                    progressText.textContent = `${Math.floor(progress)}%`;
+
+                    // Update meme text dynamically
+                    if (progress >= 5 && memeIndex < memeTexts.length && !isMemeVisible) {
+                        dynamicText.textContent = memeTexts[memeIndex];
+                        dynamicText.classList.remove('fade-out');
+                        dynamicText.classList.add('fade-in');
+                        isMemeVisible = true;
+
+                        setTimeout(() => {
+                            dynamicText.classList.remove('fade-in');
+                            dynamicText.classList.add('fade-out');
+                            isMemeVisible = false;
+                            memeIndex++;
+                        }, 2000); // Fade out after 1 seconds
+                    }
+                }, interval);
+            });
+
+            // Close modal when "Continue" button is clicked
+            continueBtn.addEventListener('click', function () {
+                window.location.href = 'homepage.html';
+            });
+        };
+    </script>
+</body>
+</html>

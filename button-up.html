@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Button Up - Store</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="styles.css" />
+</head>
+<body style="background: #F3F5F7;">
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg bg-white sticky-top" style="border-radius: 10px; border: 2px solid #6C7A89;">
+        <div class="container">
+            <div class="d-flex align-items-center w-100 flex-wrap">
+                <div class="search-box me-auto">
+                    <input type="text" class="form-control search-input" placeholder="search in store" >
+                </div>
+                <div class="d-flex nav-icons justify-content-end flex-wrap">
+                    <a href="index.html" class="nav-link"><i class="bi bi-house fs-6"></i></a>
+                    <a href="#" class="nav-link"><i class="bi bi-bell fs-6"></i></a>
+                    <a href="#" class="nav-link"><i class="bi bi-cart fs-6"></i></a>
+                    <a href="#" class="nav-link"><i class="bi bi-person fs-6"></i></a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Categories -->
+    <div class="container my-4">
+        <div class="row justify-content-center g-2">
+            <div class="col-auto"><a href="homepage.html" class="btn btn-outline-primary">All</a></div>
+            <div class="col-auto"><a href="button-up.html" class="btn btn-outline-primary active">Button Up</a></div>
+            <div class="col-auto"><a href="t-shirts.html" class="btn btn-outline-primary">T-Shirts</a></div>
+            <div class="col-auto"><a href="pants.html" class="btn btn-outline-primary">Pants</a></div>
+            <div class="col-auto"><a href="sold-out.html" class="btn btn-outline-primary">Sold Out</a></div>
+            <div class="col-auto"><a href="testimonial.html" class="btn btn-outline-primary">Testimonial</a></div>
+            <div class="col-auto"><a href="about.html" class="btn btn-outline-primary">About Me</a></div>
+        </div>
+    </div>
+
+    <!-- Product Grid -->
+    <div class="container">
+        <div class="row g-4">
+            <div class="col-md-4">
+                <div class="card product-card">
+                    <img src="img/navyblue_shirt.jpg" class="card-img-top" alt="Blue Button Up" />
+                    <div class="card-body">
+                        <h5>Blue Button Up</h5>
+                        <p class="text-primary">Rp 250.000</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card product-card">
+                    <img src="img/white_shirt.jpg" class="card-img-top" alt="White Button Up" />
+                    <div class="card-body">
+                        <h5>White Button Up</h5>
+                        <p class="text-primary">Rp 250.000</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card product-card">
+                    <img src="img/red_shirt.jpg" class="card-img-top" alt="Red Button Up" />
+                    <div class="card-body">
+                        <h5>Red Button Up</h5>
+                        <p class="text-primary">Rp 250.000</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
