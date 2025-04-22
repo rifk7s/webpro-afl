@@ -139,6 +139,14 @@
 
             // Remove blur and start animation when scan begins
             beginScanBtn.addEventListener('click', function () {
+                // Unlock both audio files for iOS (only once)
+                if (!window.audioUnlocked) {
+                    
+                    successAudio.play().then(() => successAudio.pause());
+                    scanningAudio.play().then(() => scanningAudio.played());
+                    window.audioUnlocked = true;
+                }
+
                 blurBg.style.display = 'none';
                 beginScanBtn.style.display = 'none';
                 modalTitle.textContent = 'Scanning...';
@@ -146,7 +154,7 @@
                 animationContainer.style.display = 'block';
                 progressContainer.style.display = 'block';
 
-                // Play scanning audio from the start
+                // Play scanning audio from the start (do NOT pause here)
                 scanningAudio.currentTime = 0;
                 scanningAudio.play();
 
