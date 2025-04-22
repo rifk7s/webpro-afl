@@ -398,7 +398,8 @@ body {
     border-radius: 10px;
     font-family: 'JetBrains Mono', monospace;
     font-weight: 700;
-    font-size: 40px;
+    font-size: 1rem; /* Match the size of "ADD TO CART" */
+    padding: 0.5rem 1rem; /* Match the padding of "ADD TO CART" */
     color: #000000;
 }
 
@@ -593,6 +594,3 @@ body {
     width: 100%; /* Ensure the image fits the container */
     height: auto; /* Maintain aspect ratio */
 }
-
-
-

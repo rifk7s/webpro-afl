@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Cart - Blue Button Up</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg bg-white sticky-top">
+        <div class="container">
+            <div class="d-flex align-items-center w-100 flex-wrap">
+                <div class="search-box me-auto">
+                    <input type="text" class="form-control search-input" placeholder="search in store">
+                </div>
+                <div class="d-flex nav-icons justify-content-end flex-wrap">
+                    <a href="index.html" class="nav-link"><i class="bi bi-house fs-6"></i></a>
+                    <a href="#" class="nav-link"><i class="bi bi-bell fs-6"></i></a>
+                    <a href="#" class="nav-link"><i class="bi bi-cart fs-6"></i></a>
+                    <a href="#" class="nav-link"><i class="bi bi-person fs-6"></i></a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Categories -->
+    <div class="container my-4">
+        <div class="row justify-content-center g-2">
+            <div class="col-auto"><a href="homepage.html" class="btn btn-outline-primary">All</a></div>
+            <div class="col-auto"><a href="button-up.html" class="btn btn-outline-primary active">Button Up</a></div>
+            <div class="col-auto"><a href="t-shirts.html" class="btn btn-outline-primary">T-Shirts</a></div>
+            <div class="col-auto"><a href="pants.html" class="btn btn-outline-primary">Pants</a></div>
+            <div class="col-auto"><a href="sold-out.html" class="btn btn-outline-primary">Sold Out</a></div>
+            <div class="col-auto"><a href="testimonial.html" class="btn btn-outline-primary">Testimonial</a></div>
+            <div class="col-auto"><a href="about.html" class="btn btn-outline-primary">About Me</a></div>
+        </div>
+    </div>
+
+    <!-- Container Produk -->
+    <div class="container my-4" style="max-width: 1140px;">
+        <div class="row g-4 align-items-start">
+            <!-- Product Image -->
+            <div class="col-md-4 d-flex justify-content-center mx-auto">
+                <div style="max-width:385px;">
+                    <div class="bg-white border border-dark mb-2" style="width:385px; height:400px; display:flex; justify-content:center; align-items:center; overflow: hidden;">
+                        <img src="img/navyblue_shirt.jpg" alt="Blue Button Up" class="img-fluid" style="width:100%; height:100%; object-fit:cover;">
+                    </div>
+                    <button class="product-name-btn w-100 mb-1">Blue Button Up</button>
+                    <button class="product-price-btn w-100">Formal Shirts</button>
+                </div>
+            </div>
+
+            <!-- Product Description -->
+            <div class="col-md-4 px-md-4">
+                <h5 class="fw-bold">Signature Blue Button Up</h5>
+                <div class="mb-1" style="font-size:0.95rem;">
+                    Sold <span style="color:#888;">150++</span>
+                    <span class="ms-2" style="color:#FFD700;"><i class="bi bi-star-fill"></i> 4.8</span>
+                    <span style="color:#b0b0b0;">(208 Rating)</span>
+                </div>
+                <div class="mb-1">
+                    <span class="fw-bold" style="font-size:1.5rem;">Rp250.000</span>
+                    <span class="ms-2" style="text-decoration:line-through;color:#b0b0b0;font-size:1rem;">Rp349.000</span>
+                </div>
+                <div class="mb-2">
+                    <span class="fw-bold">Size: L</span>
+                    <div class="btn-group ms-2 mb-1" role="group" aria-label="Size">
+                        <button type="button" class="btn btn-outline-dark btn-sm px-2 py-0">M</button>
+                        <button type="button" class="btn btn-outline-dark btn-sm px-2 py-0 active">L</button>
+                        <button type="button" class="btn btn-outline-dark btn-sm px-2 py-0">XL</button>
+                        <button type="button" class="btn btn-outline-dark btn-sm px-2 py-0">XXL</button>
+                        <button type="button" class="btn btn-outline-dark btn-sm px-2 py-0">XXXL</button>
+                    </div>
+                    <div class="mt-1" style="font-size:0.95rem;">
+                        <span style="color:#b0b0b0;">✗ Clear</span>
+                        <span class="ms-2" style="color:#d9534f;">Out Of Stock</span>
+                    </div>
+                </div>
+                <hr class="my-1 me-md-2">
+                <div class="fw-bold mb-2">Details</div>
+                <hr class="my-1 me-md-2">
+                <div style="font-size:0.97rem;">
+                    Artikel terbaru kami, kemeja tangan panjang dengan cutting oversize.<br>
+                    Cocok sekali bagi anda pecinta preep style, kesan rapih dan kasual kita bentuk dalam siluet baju ini.<br>
+                    Tersedia dalam 2 variabel warna : Dark blue dan Wine red.<br>
+                    Kami letakan di 2 sku yang berbeda, untuk lebih meyakinkan anda dalam memilih.<br><br>
+                    Fabrique : 100% cotton.<br>
+                    Terdapat Aksen bordir kita letakan pada baju bagian bawah.
+                </div>
+            </div>
+
+            <!-- Checkout Cart -->
+            <div class="col-md-3 ps-md-4">
+                <div class="p-3 w-100 border border-dark rounded-3">
+                    <div class="mb-2" style="font-size:1.05rem;">Atur Jumlah</div>
+                    <div class="mb-1">L</div>
+                    <div class="d-flex align-items-center mb-2">
+                        <button class="btn btn-outline-secondary btn-sm me-2" style="width:32px;"><i class="bi bi-dash"></i></button>
+                        <span class="mx-2" style="font-size:1.1rem;">1</span>
+                        <button class="btn btn-outline-secondary btn-sm ms-2" style="width:32px;"><i class="bi bi-plus"></i></button>
+                        <span class="ms-3">Stok: <b>15</b></span>
+                    </div>
+                    <div class="mb-2">
+                        <span>Subtotal</span>
+                        <span class="float-end fw-bold">250.000</span>
+                    </div>
+                    <button class="btn btn-outline-dark w-100 mb-2">ADD TO CART</button>
+                    <button class="btn btn-primary w-100 mb-2">BUY NOW</button>
+                    <div class="d-grid gap-2">
+                        <button class="btn btn-light border d-flex align-items-center justify-content-start" type="button">
+                            <i class="bi bi-chat-left-text me-2"></i> <b>Chat Support</b>
+                        </button>
+                        <button class="btn btn-light border d-flex align-items-center justify-content-start" type="button">
+                            <i class="bi bi-heart me-2"></i> <b>Add to WishList</b>
+                        </button>
+                        <button class="btn btn-light border d-flex align-items-center justify-content-start" type="button">
+                            <i class="bi bi-share me-2"></i> <b>Share Product</b>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
