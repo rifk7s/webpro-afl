@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
     
+<head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Verification</title>
@@ -33,12 +33,12 @@
             }
             100% {
                 opacity: 0;
-                transform: rotateY(90deg);
+                transform: rotateY(180deg);
             }
         }
 
         .modal-content.fade-out-flip {
-            animation: fadeOutFlip 0.5s ease forwards;
+            animation: fadeOutFlip 0.2s ease forwards;
         }
 
         /* Fade-in and fade-out animations for meme text */
@@ -61,14 +61,15 @@
         }
 
         .fade-in {
-            animation: fadeIn 1.5s ease forwards;
+            animation: fadeIn 1s ease forwards;
         }
 
         .fade-out {
-            animation: fadeOut 1.5s ease forwards;
+            animation: fadeOut 0.5s ease forwards;
         }
     </style>
 </head>
+
 <body>
     <!-- Blurred Background -->
     <div id="blur-bg" class="position-fixed top-0 start-0 w-100 h-100 bg-dark" style="z-index: 1040; opacity: 0.5; display: none;"></div>
@@ -101,6 +102,7 @@
         </div>
     </div>
 
+    <!-- SCRIPT TAB -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <script>
         // Show the modal and blur background on page load
@@ -122,9 +124,9 @@
             const modalTitle = document.getElementById('modalTitle');
             const modalText = document.getElementById('modalText');
 
-            // Audio elements
-            const scanningAudio = new Audio('img/audio.mp3');
-            const successAudio = new Audio('img/success2.mp3');
+            // Scanning and success audio elements
+            const scanningAudio = new Audio('img/audiofix.wav');
+            const successAudio = new Audio('img/success2.wav');
 
             const memeTexts = [
                 "DETECTING CHIEF KEEF KNOWLEDGE",
@@ -132,6 +134,7 @@
                 "CALCULATING HIMOTHY SCORE",
                 "RUNNING BAND FOR BAND EMULATOR",
                 "DETECTING IP ADDRESS CONFIRMATION",
+                "BANDWIDTH USAGE ANALYSIS",
             ];
 
             // Remove blur and start animation when scan begins
@@ -143,76 +146,84 @@
                 animationContainer.style.display = 'block';
                 progressContainer.style.display = 'block';
 
-                // Play scanning audio
-                scanningAudio.loop = true;
+                // Play scanning audio from the start
+                scanningAudio.currentTime = 0;
                 scanningAudio.play();
 
-                // Progress bar animation
+                // Set scanning duration to match audiofix.wav (e.g., 10s + 200ms buffer)
+                const scanningDuration = 10600; // ms (adjust if your audio is longer/shorter)
+                const interval = 100;
+                const memeDuration = scanningDuration;
+                const steps = Math.ceil(scanningDuration / interval);
+                const increment = 130 / steps;
                 let progress = 0;
-                const duration = 9500; // Adjusted duration to 9.5 seconds
-                const interval = 50; // Update interval in milliseconds
-                const increment = (100 / (duration / interval));
+                let currentStep = 0;
                 let memeIndex = 0;
                 let isMemeVisible = false;
 
                 const progressInterval = setInterval(() => {
-                    progress += increment;
-                    if (progress >= 100) {
-                        progress = 100;
+                    currentStep++;
+                    if (currentStep >= steps) {
+                        progress = 103;
                         clearInterval(progressInterval);
 
-                        // Ensure progress reaches 100% before showing success
+                        // Ensure progress reaches 100% before proceeding
                         progressBar.style.width = '100%';
                         progressText.textContent = '100%';
 
-                        // Stop scanning audio and play success audio
+                        // Stop scanning audio
                         scanningAudio.pause();
                         scanningAudio.currentTime = 0;
 
-                        // Ensure meme text finishes before showing success popup
-                        setTimeout(() => {
-                            successAudio.play();
+                        // Play success audio
+                        successAudio.currentTime = 0;
+                        successAudio.play();
 
-                            // Hide animation and show success message
+                        // Clear meme text before showing success popup
+                        dynamicText.textContent = '';
+                        dynamicText.classList.remove('fade-in', 'fade-out');
+
+                        // Fade in success message smoothly
+                        setTimeout(() => {
                             animationContainer.style.display = 'none';
                             progressContainer.style.display = 'none';
+                            successMessage.style.opacity = 0;
                             successMessage.style.display = 'block';
                             continueBtn.style.display = 'inline-block';
+                            setTimeout(() => {
+                                successMessage.style.transition = 'opacity 0.6s';
+                                successMessage.style.opacity = 1;
+                            }, 10);
 
                             // Automatically close modal with fade-out and flipped card animation
                             setTimeout(() => {
-                                modalContent.classList.add('fade-out-flip'); // Apply flip animation to the entire modal
+                                modalContent.classList.add('fade-out-flip');
                                 setTimeout(() => {
-                                    // Redirect to homepage.html after fade-out animation
                                     window.location.href = 'homepage.html';
-                                }, 800); // Wait for fade-out animation to complete
-                            }, 1900); // Wait 2.5 seconds before starting fade-out
-                        }, 400); // Small delay to ensure smooth transition
-                    }
+                                }, 900);
+                            }, 2500);
+                        }, 200); // Small delay for smoothness
+                    } else {
+                        progress += increment;
+                        // Clamp progress to 100% max before last step for smoothness
+                        if (progress > 100) progress = 100;
+                        progressBar.style.width = `${progress}%`;
+                        progressText.textContent = `${Math.floor(progress)}%`;
 
-                    // Update progress bar and text
-                    progressBar.style.width = `${progress}%`;
-                    progressText.textContent = `${Math.floor(progress)}%`;
+                        // Update meme text dynamically within the allocated memeDuration
+                        if (progress <= (memeDuration / scanningDuration) * 100 && memeIndex < memeTexts.length && !isMemeVisible) {
+                            dynamicText.textContent = memeTexts[memeIndex];
+                            dynamicText.classList.remove('fade-out');
+                            dynamicText.classList.add('fade-in');
+                            isMemeVisible = true;
 
-                    // Update meme text dynamically
-                    if (progress >= 5 && memeIndex < memeTexts.length && !isMemeVisible) {
-                        dynamicText.textContent = memeTexts[memeIndex];
-                        dynamicText.classList.remove('fade-out');
-                        dynamicText.classList.add('fade-in');
-                        isMemeVisible = true;
-
-                        setTimeout(() => {
-                            dynamicText.classList.remove('fade-in');
-                            dynamicText.classList.add('fade-out');
-                            isMemeVisible = false;
-                            memeIndex++;
-                        }, 2000); // Fade out after 2 seconds
-                    }
-
-                    // Ensure meme text is cleared before success popup
-                    if (progress >= 95) {
-                        dynamicText.textContent = '';
-                        dynamicText.classList.remove('fade-in', 'fade-out');
+                            setTimeout(() => {
+                                dynamicText.classList.remove('fade-in');
+                                dynamicText.classList.add('fade-out');
+                                isMemeVisible = false;
+                                memeIndex++;
+                            }, 2000);
+                        }
                     }
                 }, interval);
             });
