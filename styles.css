@@ -594,3 +594,8 @@ body {
     width: 100%; /* Ensure the image fits the container */
     height: auto; /* Maintain aspect ratio */
 }
+
+.profile-img {
+    border: 2px solid #000; /* You can use #333 or rgba(0,0,0,0.2) for softer look */
+    border-radius: 12px;    /* Optional: slight rounding like in Figma */
+}
