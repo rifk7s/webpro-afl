@@ -408,9 +408,13 @@ body {
 }
 
 .about-text-bg {
-    background-color: var(--primary-foreground);
-    padding: 1rem;
-    border-radius: 0.5rem;
+    background-color: #d8e7f6; /* Light blue, matches Figma */
+    padding: 1.5rem;
+    border-radius: 12px;
+    border: none;
+    box-shadow: none;
+    max-width:70%; /* Match Figma width */
+    margin: auto;
 }
 
 /* Active category button style */
@@ -595,7 +599,108 @@ body {
     height: auto; /* Maintain aspect ratio */
 }
 
+/* Profile section styles */
 .profile-img {
-    border: 2px solid #000; /* You can use #333 or rgba(0,0,0,0.2) for softer look */
-    border-radius: 12px;    /* Optional: slight rounding like in Figma */
+    border: 2px solid #000;
+    border-radius: 12px;
+    width: 250px;
+    height: 200px;
+    object-fit: cover;
+    display: block;
+    margin-left: 0;
+    max-width: 100%;
+}
+
+/* Responsive Media Queries for About Section - Using existing breakpoints */
+@media (max-width: 1200px) {
+    .about-text-bg {
+        max-width: 85%;
+    }
+}
+
+@media (max-width: 992px) {
+    .about-text-bg {
+        max-width: 95%;
+    }
+    
+    .profile-img {
+        width: 220px;
+        height: 180px;
+    }
+}
+
+@media (max-width: 768px) {
+    .about-text-bg {
+        padding: 1.25rem;
+    }
+    
+    .profile-img {
+        width: 180px;
+        height: 150px;
+    }
+    
+    .bio-text {
+        font-size: 0.9rem;
+        padding-top: 0.5rem;
+    }
+}
+
+/* Handle stacking on mobile */
+@media (max-width: 576px) {
+    .about-text-bg {
+        max-width: 100%;
+        padding: 1rem;
+    }
+    
+    .profile-img {
+        width: 150px;
+        height: 120px;
+    }
+    
+    /* Make columns stack properly on mobile */
+    .about-text-bg .row {
+        display: flex;
+        flex-direction: column;
+    }
+    
+    .about-text-bg .col-md-3 {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin-bottom: 1rem;
+        text-align: center;
+    }
+    
+    .about-text-bg .col-md-9 {
+        padding-left: 0.5rem;
+        padding-right: 0.5rem;
+    }
+    
+    .bio-text {
+        text-align: left;
+        margin-top: 0.5rem;
+    }
+}
+
+@media (max-width: 375px) {
+    .profile-img {
+        width: 130px;
+        height: 110px;
+    }
+}
+
+.profile-img {
+    border: 2px solid #000;
+    border-radius: 12px;
+    width: 250px;
+    height: 200px;
+    object-fit: cover;
+    display: block;
+    margin-left: 0;
+    margin-right: 0;
+    max-width: 100%;
+}
+
+.email-container {
+    margin-top: 8px;
 }
